@@ -13,24 +13,14 @@ class UserManager{
     private init(){}
     
     func setData(){
-        UserDefaults.standard.set("", forKey: "userName")
+        UserDefaults.standard.set(true, forKey: "FirstLaunch")
     }
     
-    func getUserName() -> String?{
-        return UserDefaults.standard.string(forKey: "userName")
-    }
-    
-    func setAuthenticationKey(key: String){
-        let authorizationKey = "bearer " + key
-        UserDefaults.standard.set(authorizationKey, forKey: "authorizationKey")
-    }
-    
-    func getAuthorizationKey() -> String?{
-        return UserDefaults.standard.string(forKey: "authorizationKey")
+    func userDidFirstLaunch() -> Bool?{
+        return UserDefaults.standard.bool(forKey: "FirstLaunch")
     }
     
     func clearData(){
-        UserDefaults.standard.removeObject(forKey: "userName")
-        UserDefaults.standard.removeObject(forKey: "authorizationKey")
+        UserDefaults.standard.removeObject(forKey: "FirstLaunch")
     }
 }

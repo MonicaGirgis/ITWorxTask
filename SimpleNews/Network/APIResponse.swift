@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIResponse<R: Decodable>: Decodable {
+struct APIResponse<R: Codable>: Codable {
     var totalResults: Int?
     var articles: R
     var status: String?
