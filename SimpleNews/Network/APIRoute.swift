@@ -12,14 +12,15 @@ class APIRoute{
     static let shared:APIRoute = APIRoute()
     private init(){}
     
-    private func initRequest(_ clientRequest:HomePage)->URLRequest? {
+    private func initRequest(_ clientRequest:SimpleNews)->URLRequest? {
         var request:URLRequest = clientRequest.request
         
         request.httpMethod = clientRequest.method.rawValue
         if clientRequest.body != nil{
-            let jsonData = try? JSONSerialization.data(withJSONObject: clientRequest.body, options: .prettyPrinted)
+            let jsonData = try? JSONSerialization.data(withJSONObject: clientRequest.body as Any, options: .prettyPrinted)
             request.httpBody = jsonData
         }
+        request.addHeaders(clientRequest.headers)
         
         return request
     }
@@ -56,7 +57,7 @@ class APIRoute{
                 completion(.success(responseModel))
                 
             case 400...504:
-                guard let data = data else {
+                guard data != nil else {
                     completion(.failure(.invalidData))
                     return
                 }
@@ -70,7 +71,7 @@ class APIRoute{
         return task
     }
     
-    func fetchRequest<T: Codable>(clientRequest: HomePage, decodingModel: T.Type, completion: @escaping (Result<T, APIError>) -> ()){
+    func fetchRequest<T: Codable>(clientRequest: SimpleNews, decodingModel: T.Type, completion: @escaping (Result<T, APIError>) -> ()){
         
         guard let urlRequest:URLRequest = self.initRequest(clientRequest) else {return}
         

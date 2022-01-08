@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if UserManager.shared.getAuthorizationKey() != nil {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "Intro", bundle: nil)
+            let storyboard = UIStoryboard(name: "News", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()

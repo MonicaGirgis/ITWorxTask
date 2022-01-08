@@ -8,7 +8,7 @@
 import Foundation
 
 enum SimpleNews{
-    case GetData
+    case GetData(country: Countries)
 }
 
 extension SimpleNews: Endpoint{
@@ -21,21 +21,22 @@ extension SimpleNews: Endpoint{
     }
     
     var path: String {
-        switch self{
-        case .GetData:
-            return "main"
-        }
+        return ""
     }
     
     var queryItems: [URLQueryItem] {
-        var params: [URLQueryItem] = []
-        params.append(URLQueryItem(name: "apiKey", value: "291fe5f954674cf9bd005c09f389ce70"))
-        
         switch self{
-        case .GetData:
-            params.append(URLQueryItem(name: "", value: ""))
+        case .GetData(let country):
+            return [URLQueryItem(name: "country", value: country.code)]
         }
-        return params
+    }
+    
+    var headers : [httpHeader] {
+        let httpHeaders = [
+            httpHeader(key: "X-Api-Key", value: "291fe5f954674cf9bd005c09f389ce70")
+        ]
+        
+        return httpHeaders
     }
     
     var method: HTTPMethod {
@@ -51,6 +52,13 @@ extension SimpleNews: Endpoint{
     
 }
 
+extension URLRequest{
+    mutating func addHeaders(_ Headers:[httpHeader]){
+        for Header in Headers {
+            self.addValue(Header.value, forHTTPHeaderField: Header.key)
+        }
+    }
+}
 
 extension Bundle {
     var baseURL: String {
