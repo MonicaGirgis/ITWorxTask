@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		C5B7B2D92789833400505808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2D82789833400505808 /* AppDelegate.swift */; };
-		C5B7B2DB2789833400505808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2DA2789833400505808 /* SceneDelegate.swift */; };
 		C5B7B2DD2789833400505808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2DC2789833400505808 /* ViewController.swift */; };
 		C5B7B2E02789833400505808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B7B2DE2789833400505808 /* Main.storyboard */; };
 		C5B7B2E22789833600505808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5B7B2E12789833600505808 /* Assets.xcassets */; };
 		C5B7B2E52789833600505808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B7B2E32789833600505808 /* LaunchScreen.storyboard */; };
+		C5B7B2F12789837700505808 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2ED2789837700505808 /* APIError.swift */; };
+		C5B7B2F22789837700505808 /* SimpleNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2EE2789837700505808 /* SimpleNews.swift */; };
+		C5B7B2F32789837700505808 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2EF2789837700505808 /* APIRoute.swift */; };
+		C5B7B2F42789837700505808 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2F02789837700505808 /* APIHandler.swift */; };
+		C5B7B2FB2789838400505808 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2F62789838400505808 /* UIViewController+Extensions.swift */; };
+		C5B7B2FC2789838400505808 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2F72789838400505808 /* Encodable+Extensions.swift */; };
+		C5B7B2FD2789838400505808 /* URL + Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2F82789838400505808 /* URL + Extenstions.swift */; };
+		C5B7B2FE2789838400505808 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2F92789838400505808 /* UIView + Extensions.swift */; };
+		C5B7B2FF2789838400505808 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2FA2789838400505808 /* UIButton + Extensions.swift */; };
+		C5B7B307278987D000505808 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B306278987D000505808 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5B7B2D52789833400505808 /* SimpleNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B7B2D82789833400505808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C5B7B2DA2789833400505808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C5B7B2DC2789833400505808 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5B7B2DF2789833400505808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5B7B2E12789833600505808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5B7B2E42789833600505808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5B7B2E62789833600505808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5B7B2ED2789837700505808 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		C5B7B2EE2789837700505808 /* SimpleNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNews.swift; sourceTree = "<group>"; };
+		C5B7B2EF2789837700505808 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		C5B7B2F02789837700505808 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		C5B7B2F62789838400505808 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		C5B7B2F72789838400505808 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		C5B7B2F82789838400505808 /* URL + Extenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL + Extenstions.swift"; sourceTree = "<group>"; };
+		C5B7B2F92789838400505808 /* UIView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		C5B7B2FA2789838400505808 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		C5B7B306278987D000505808 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +74,80 @@
 		C5B7B2D72789833400505808 /* SimpleNews */ = {
 			isa = PBXGroup;
 			children = (
-				C5B7B2D82789833400505808 /* AppDelegate.swift */,
-				C5B7B2DA2789833400505808 /* SceneDelegate.swift */,
-				C5B7B2DC2789833400505808 /* ViewController.swift */,
-				C5B7B2DE2789833400505808 /* Main.storyboard */,
-				C5B7B2E12789833600505808 /* Assets.xcassets */,
-				C5B7B2E32789833600505808 /* LaunchScreen.storyboard */,
+				C5B7B305278987D000505808 /* Manger */,
+				C5B7B300278983A200505808 /* App Delegate */,
+				C5B7B2F52789838400505808 /* Extensions */,
+				C5B7B2EC2789837700505808 /* Network */,
+				C5B7B301278983C900505808 /* Scenes */,
+				C5B7B302278983D800505808 /* Storyboards */,
+				C5B7B303278983FF00505808 /* Assests */,
 				C5B7B2E62789833600505808 /* Info.plist */,
+				C5B7B2DC2789833400505808 /* ViewController.swift */,
 			);
 			path = SimpleNews;
+			sourceTree = "<group>";
+		};
+		C5B7B2EC2789837700505808 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B2ED2789837700505808 /* APIError.swift */,
+				C5B7B2EE2789837700505808 /* SimpleNews.swift */,
+				C5B7B2EF2789837700505808 /* APIRoute.swift */,
+				C5B7B2F02789837700505808 /* APIHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C5B7B2F52789838400505808 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B2F62789838400505808 /* UIViewController+Extensions.swift */,
+				C5B7B2F72789838400505808 /* Encodable+Extensions.swift */,
+				C5B7B2F82789838400505808 /* URL + Extenstions.swift */,
+				C5B7B2F92789838400505808 /* UIView + Extensions.swift */,
+				C5B7B2FA2789838400505808 /* UIButton + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5B7B300278983A200505808 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B2D82789833400505808 /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		C5B7B301278983C900505808 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C5B7B302278983D800505808 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B2DE2789833400505808 /* Main.storyboard */,
+				C5B7B2E32789833600505808 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C5B7B303278983FF00505808 /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B2E12789833600505808 /* Assets.xcassets */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		C5B7B305278987D000505808 /* Manger */ = {
+			isa = PBXGroup;
+			children = (
+				C5B7B306278987D000505808 /* UserManager.swift */,
+			);
+			path = Manger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B7B2FD2789838400505808 /* URL + Extenstions.swift in Sources */,
+				C5B7B2F42789837700505808 /* APIHandler.swift in Sources */,
+				C5B7B2F22789837700505808 /* SimpleNews.swift in Sources */,
 				C5B7B2DD2789833400505808 /* ViewController.swift in Sources */,
+				C5B7B2F12789837700505808 /* APIError.swift in Sources */,
+				C5B7B2FC2789838400505808 /* Encodable+Extensions.swift in Sources */,
+				C5B7B307278987D000505808 /* UserManager.swift in Sources */,
+				C5B7B2FB2789838400505808 /* UIViewController+Extensions.swift in Sources */,
+				C5B7B2FF2789838400505808 /* UIButton + Extensions.swift in Sources */,
+				C5B7B2FE2789838400505808 /* UIView + Extensions.swift in Sources */,
 				C5B7B2D92789833400505808 /* AppDelegate.swift in Sources */,
-				C5B7B2DB2789833400505808 /* SceneDelegate.swift in Sources */,
+				C5B7B2F32789837700505808 /* APIRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +397,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +424,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
