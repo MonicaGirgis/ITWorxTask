@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="xAQ-ng-MTA" firstAttribute="leading" secondItem="5LP-ri-I85" secondAttribute="leading" constant="8" id="8VA-12-eb4"/>
                             <constraint firstItem="zGq-OA-RXQ" firstAttribute="centerY" secondItem="xAQ-ng-MTA" secondAttribute="centerY" id="Hj9-5g-LPI"/>
@@ -62,8 +62,8 @@
     </objects>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

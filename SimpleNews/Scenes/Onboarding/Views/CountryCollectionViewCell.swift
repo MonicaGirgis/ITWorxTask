@@ -32,7 +32,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear) { [weak self] in
             self?.followImage.image = UIImage(systemName: "checkmark")
             self?.outerView.backgroundColor = .white
-            self?.outerView.makeBorders(borderColor: .brown)
+            self?.outerView.makeBorders(borderColor: .green)
         } completion: { finished in
             if finished{
                 self.typeSelected?()

@@ -43,10 +43,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" id="lpe-sz-ttA">
+                <searchBar contentMode="redraw" placeholder="Search in articles" id="lpe-sz-ttA">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="Y6W-OH-hqX" id="VkW-A6-YzQ"/>
+                    </connections>
                 </searchBar>
             </objects>
             <point key="canvasLocation" x="1859" y="65"/>

@@ -13,7 +13,6 @@ class HeadlinesViewController: UIViewController {
     @IBOutlet weak var articlesTableView: UITableView!
     
     private var articlesData: APIResponse<[Article]> = APIResponse(totalResults: nil, articles: [], status: nil)
-    private var page = 1
     var didSearch: Bool = false
     
     override func viewDidLoad() {
@@ -29,20 +28,29 @@ class HeadlinesViewController: UIViewController {
     }
     
     private func fetchData(){
-        guard !didSearch, let country = UserManager.shared.getSelectedCountry() else { return}
+        guard let country = UserManager.shared.getSelectedCountry() else { return}
+        guard !didSearch else {
+            APIRoute.shared.fetchRequest(clientRequest: .Search(searchText: searchBar.text ?? ""), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
+                guard let self = self else { return}
+                switch response{
+                case .success(let data):
+                    self.articlesData = data
+                    self.orderByDate()
+                    self.articlesTableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            return
+        }
+        
         APIRoute.shared.fetchRequest(clientRequest: .GetData(country: country,categories: []), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
             guard let self = self else { return}
             switch response{
             case .success(let data):
-                if self.page == 1{
-                    self.articlesData = data
-                    self.orderByDate()
-                    self.articlesTableView.reloadData()
-                }else{
-                    self.articlesData.articles.append(contentsOf: data.articles)
-                    self.orderByDate()
-                }
-                
+                self.articlesData = data
+                self.orderByDate()
+                self.articlesTableView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -94,5 +102,14 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: articlesData.articles[indexPath.row].url)
+    }
+}
+
+//MARK:- UISearchBarDelegate
+extension HeadlinesViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        didSearch = true
+        fetchData()
     }
 }

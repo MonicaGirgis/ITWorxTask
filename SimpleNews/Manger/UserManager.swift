@@ -15,7 +15,7 @@ class UserManager{
     func setData(country: Countries, categories: [Categories]){
         UserDefaults.standard.set(true, forKey: "FirstLaunch")
         UserDefaults.standard.set(country.code, forKey: "SelectedCountry")
-        //UserDefaults.standard.set(categories, forKey: "SelectedCategories")
+        UserDefaults.standard.set(categories.map {$0.rawValue}, forKey: "SelectedCategories")
     }
     
     func userDidFirstLaunch() -> Bool?{
@@ -26,8 +26,8 @@ class UserManager{
         return UserDefaults.standard.string(forKey: "SelectedCountry")
     }
     
-    func getSelectedCategories() -> [Categories]?{
-        return UserDefaults.standard.value(forKey: "SelectedCategories") as? [Categories]
+    func getSelectedCategories() -> [String]?{
+        return UserDefaults.standard.value(forKey: "SelectedCategories") as? [String]
     }
     
     func clearData(){

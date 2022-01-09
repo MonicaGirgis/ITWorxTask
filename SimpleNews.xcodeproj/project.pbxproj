@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		90B1B0196B7A090561C83CAF /* Pods_SimpleNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DFF68DF2B4410AD417E344 /* Pods_SimpleNews.framework */; };
 		C521A0EB278AADBB0050BAA9 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C521A0EA278AADBB0050BAA9 /* webViewController.swift */; };
+		C5A824AB278B56E000297500 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5A824A9278B56E000297500 /* News.xcdatamodeld */; };
+		C5A824AD278B589A00297500 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A824AC278B589A00297500 /* CoreDataManager.swift */; };
 		C5B7B2D92789833400505808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7B2D82789833400505808 /* AppDelegate.swift */; };
 		C5B7B2E02789833400505808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B7B2DE2789833400505808 /* Main.storyboard */; };
 		C5B7B2E22789833600505808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5B7B2E12789833600505808 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		76DFF68DF2B4410AD417E344 /* Pods_SimpleNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F604D66FBFD802D0BF89C /* Pods-SimpleNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNews.release.xcconfig"; path = "Target Support Files/Pods-SimpleNews/Pods-SimpleNews.release.xcconfig"; sourceTree = "<group>"; };
 		C521A0EA278AADBB0050BAA9 /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
+		C5A824AA278B56E000297500 /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
+		C5A824AC278B589A00297500 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C5B7B2D52789833400505808 /* SimpleNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B7B2D82789833400505808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5B7B2DF2789833400505808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,11 +111,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C521A0E9278AACF70050BAA9 /* Search */ = {
+		C5A824A8278B56C100297500 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C5A824A9278B56E000297500 /* News.xcdatamodeld */,
+				C5A824AC278B589A00297500 /* CoreDataManager.swift */,
 			);
-			path = Search;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C5B7B2CC2789833400505808 = {
@@ -135,6 +141,7 @@
 		C5B7B2D72789833400505808 /* SimpleNews */ = {
 			isa = PBXGroup;
 			children = (
+				C5A824A8278B56C100297500 /* CoreData */,
 				C5B7B305278987D000505808 /* Manger */,
 				C5B7B300278983A200505808 /* App Delegate */,
 				C5B7B2F52789838400505808 /* Extensions */,
@@ -182,7 +189,6 @@
 		C5B7B301278983C900505808 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C521A0E9278AACF70050BAA9 /* Search */,
 				C5B7B31A2789D7CC00505808 /* Headlines */,
 				C5B7B30827899D6F00505808 /* Onboarding */,
 			);
@@ -395,11 +401,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A824AB278B56E000297500 /* News.xcdatamodeld in Sources */,
 				C5B7B3272789E45600505808 /* ArticleTableViewCell.swift in Sources */,
 				C5B7B30A27899D9600505808 /* OnboardingViewController.swift in Sources */,
 				C5B7B2FD2789838400505808 /* URL + Extenstions.swift in Sources */,
 				C5B7B3212789DCE600505808 /* Article.swift in Sources */,
 				C5B7B2F42789837700505808 /* APIHandler.swift in Sources */,
+				C5A824AD278B589A00297500 /* CoreDataManager.swift in Sources */,
 				C5B7B30E2789A33800505808 /* CountryCollectionViewCell.swift in Sources */,
 				C5B7B31C2789D81200505808 /* HeadlinesViewController.swift in Sources */,
 				C5B7B2F22789837700505808 /* SimpleNews.swift in Sources */,
@@ -636,6 +644,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C5A824A9278B56E000297500 /* News.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C5A824AA278B56E000297500 /* News.xcdatamodel */,
+			);
+			currentVersion = C5A824AA278B56E000297500 /* News.xcdatamodel */;
+			path = News.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C5B7B2CD2789833400505808 /* Project object */;
 }
