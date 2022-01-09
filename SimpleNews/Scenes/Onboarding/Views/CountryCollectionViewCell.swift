@@ -8,8 +8,8 @@
 import UIKit
 
 class CountryCollectionViewCell: UICollectionViewCell {
-
-   
+    
+    
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var countryTitleLabel: UILabel!
     @IBOutlet weak var followImage: UIImageView!
@@ -29,7 +29,15 @@ class CountryCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func typeChosen(){
-        typeSelected?()
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear) { [weak self] in
+            self?.followImage.image = UIImage(systemName: "checkmark")
+            self?.outerView.backgroundColor = .white
+            self?.outerView.makeBorders(borderColor: .brown)
+        } completion: { finished in
+            if finished{
+                self.typeSelected?()
+            }
+        }
     }
     
     func setCountryTitle(_ title: String){

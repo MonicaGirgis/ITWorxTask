@@ -8,7 +8,8 @@
 import Foundation
 
 enum SimpleNews{
-    case GetData(country: Countries)
+    case GetData(country: String, categories: [Categories])
+    case Search(searchText: String)
 }
 
 extension SimpleNews: Endpoint{
@@ -26,8 +27,10 @@ extension SimpleNews: Endpoint{
     
     var queryItems: [URLQueryItem] {
         switch self{
-        case .GetData(let country):
-            return [URLQueryItem(name: "country", value: country.code)]
+        case .GetData(let country, _):
+            return [URLQueryItem(name: "country", value: country)]
+        case .Search(let searchText):
+            return [URLQueryItem(name: "q", value: searchText)]
         }
     }
     

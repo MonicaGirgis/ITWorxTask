@@ -20,7 +20,7 @@
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qaz-dT-4mS">
                         <rect key="frame" x="0.0" y="0.0" width="370" height="321"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="4" id="5cK-ac-f9v">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="5cK-ac-f9v">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -42,6 +42,7 @@
             </constraints>
             <size key="customSize" width="370" height="321"/>
             <connections>
+                <outlet property="layout" destination="5cK-ac-f9v" id="0Xu-GX-B6n"/>
                 <outlet property="setCollectionView" destination="qaz-dT-4mS" id="kwL-Z1-BSi"/>
             </connections>
             <point key="canvasLocation" x="-94.20289855072464" y="187.16517857142856"/>

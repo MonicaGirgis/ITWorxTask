@@ -12,15 +12,27 @@ class UserManager{
     public static let shared = UserManager()
     private init(){}
     
-    func setData(){
+    func setData(country: Countries, categories: [Categories]){
         UserDefaults.standard.set(true, forKey: "FirstLaunch")
+        UserDefaults.standard.set(country.code, forKey: "SelectedCountry")
+        //UserDefaults.standard.set(categories, forKey: "SelectedCategories")
     }
     
     func userDidFirstLaunch() -> Bool?{
         return UserDefaults.standard.bool(forKey: "FirstLaunch")
     }
     
+    func getSelectedCountry() -> String?{
+        return UserDefaults.standard.string(forKey: "SelectedCountry")
+    }
+    
+    func getSelectedCategories() -> [Categories]?{
+        return UserDefaults.standard.value(forKey: "SelectedCategories") as? [Categories]
+    }
+    
     func clearData(){
         UserDefaults.standard.removeObject(forKey: "FirstLaunch")
+        UserDefaults.standard.removeObject(forKey: "SelectedCountry")
+        UserDefaults.standard.removeObject(forKey: "SelectedCategories")
     }
 }

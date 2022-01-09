@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (UserManager.shared.userDidFirstLaunch() ?? false) {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "News", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }

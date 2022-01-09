@@ -10,9 +10,12 @@ import UIKit
 class CollectionSetCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var setCollectionView: UICollectionView!
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
     var sectionName: OnboardingViewController.SectionHeaders = .Countries
-    var typeDidSelect: (()->())?
+    var countrySelected: ((Countries)->())?
+    var categoriesSelected: (([Categories])->())?
+    private var cats: [Categories] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,11 +24,11 @@ class CollectionSetCollectionViewCell: UICollectionViewCell {
     
     private func setupUI(){
         setCollectionView.register(UINib(nibName: String(describing: CountryCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: CountryCollectionViewCell.self))
-        
+        //layout.estimatedItemSize = CGSize(width: 1, height: 1)
     }
     
-    func setData(){
-        
+    func setData(section: OnboardingViewController.SectionHeaders){
+        sectionName = section
     }
 }
 
@@ -35,9 +38,9 @@ extension CollectionSetCollectionViewCell: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch sectionName{
         case .Countries:
-            return 20
+            return Countries.allCases.count
         default:
-            return 20
+            return Categories.allCases.count
         }
     }
     
@@ -45,16 +48,32 @@ extension CollectionSetCollectionViewCell: UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CountryCollectionViewCell.self), for: indexPath) as! CountryCollectionViewCell
         switch sectionName{
         case .Countries:
-            cell.setCountryTitle("United States")
+            cell.setCountryTitle(Countries.allCases[indexPath.row].rawValue)
+            cell.typeSelected = { [weak self] in
+                self?.countrySelected?(Countries.allCases[indexPath.row])
+            }
         default:
-           break
-        }
-        
-        cell.typeSelected = { [weak self] in
-            self?.typeDidSelect?()
+            cell.setCountryTitle(Categories.allCases[indexPath.row].rawValue)
+            cell.typeSelected = { [weak self] in
+                guard let self = self else { return}
+                self.cats.append(Categories.allCases[indexPath.row])
+                if self.cats.count == 3{
+                    self.categoriesSelected?(self.cats)
+                }
+            }
         }
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 2) - 2, height: 64)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
 }
