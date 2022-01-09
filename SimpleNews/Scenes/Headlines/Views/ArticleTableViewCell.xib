@@ -38,7 +38,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kkf-Fq-cvX">
-                        <rect key="frame" x="144" y="73" width="346" height="22"/>
+                        <rect key="frame" x="144" y="73" width="44" height="22"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -67,7 +68,6 @@
                     <constraint firstItem="yAD-kQ-arb" firstAttribute="leading" secondItem="Gaz-at-CCi" secondAttribute="trailing" constant="16" id="23n-vQ-VRx"/>
                     <constraint firstItem="yAD-kQ-arb" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.3" id="9Ks-bd-EQH"/>
                     <constraint firstItem="yAD-kQ-arb" firstAttribute="top" secondItem="Gaz-at-CCi" secondAttribute="top" id="G5y-88-kjx"/>
-                    <constraint firstItem="Kkf-Fq-cvX" firstAttribute="trailing" secondItem="yAD-kQ-arb" secondAttribute="trailing" id="Gkz-WP-02j"/>
                     <constraint firstItem="csi-7A-5T5" firstAttribute="leading" secondItem="yAD-kQ-arb" secondAttribute="leading" constant="8" id="HoH-VP-Iff"/>
                     <constraint firstItem="RsW-iU-R6e" firstAttribute="leading" secondItem="en0-aa-f7A" secondAttribute="trailing" constant="8" id="Idb-Nn-SgD"/>
                     <constraint firstItem="Gaz-at-CCi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Jlw-HD-0fZ"/>

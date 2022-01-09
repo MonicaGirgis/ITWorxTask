@@ -28,33 +28,49 @@ class HeadlinesViewController: UIViewController {
     }
     
     private func fetchData(){
+        articlesData.articles.removeAll()
+        let dispatchGroup = DispatchGroup()
+        
         guard let country = UserManager.shared.getSelectedCountry() else { return}
         guard !didSearch else {
-            APIRoute.shared.fetchRequest(clientRequest: .Search(searchText: searchBar.text ?? ""), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
-                guard let self = self else { return}
-                switch response{
-                case .success(let data):
-                    self.articlesData = data
-                    self.orderByDate()
-                    self.articlesTableView.reloadData()
-                case .failure(let error):
-                    print(error)
+            UserManager.shared.getSelectedCategories()?.forEach({ category in
+                APIRoute.shared.fetchRequest(clientRequest: .Search(searchText: searchBar.text ?? "",category: category), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
+                    dispatchGroup.enter()
+                    guard let self = self else { return}
+                    switch response{
+                    case .success(let data):
+                        self.articlesData.articles.append(contentsOf: data.articles)
+                    case .failure(let error):
+                        print(error)
+                    }
+                    dispatchGroup.leave()
+                    dispatchGroup.notify(queue: .main){
+                        self.orderByDate()
+                        self.articlesTableView.reloadData()
+                    }
                 }
-            }
+            })
             return
         }
         
-        APIRoute.shared.fetchRequest(clientRequest: .GetData(country: country,categories: []), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
-            guard let self = self else { return}
-            switch response{
-            case .success(let data):
-                self.articlesData = data
-                self.orderByDate()
-                self.articlesTableView.reloadData()
-            case .failure(let error):
-                print(error)
+        UserManager.shared.getSelectedCategories()?.forEach({ category in
+            
+            APIRoute.shared.fetchRequest(clientRequest: .GetData(country: country,category: category), decodingModel: APIResponse<[Article]>.self) { [weak self] response in
+                dispatchGroup.enter()
+                guard let self = self else { return}
+                switch response{
+                case .success(let data):
+                    self.articlesData.articles.append(contentsOf: data.articles)
+                case .failure(let error):
+                    print(error)
+                }
+                dispatchGroup.leave()
+                dispatchGroup.notify(queue: .main){
+                    self.orderByDate()
+                    self.articlesTableView.reloadData()
+                }
             }
-        }
+        })
     }
     
     private func orderByDate(){
@@ -78,6 +94,10 @@ class HeadlinesViewController: UIViewController {
         }
     }
     
+    @IBAction func showBookmarks(_ sender: Any) {
+        performSegue(withIdentifier: "showBookmarks", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? webViewController, let url = sender as? String else { return}
         vc.articleURL = url
@@ -93,6 +113,12 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ArticleTableViewCell.self), for: indexPath) as! ArticleTableViewCell
         cell.setData(article: articlesData.articles[indexPath.row])
+        
+        cell.saveLater = { [weak self] in
+            guard let self = self else { return}
+            self.articlesData.articles[indexPath.row].isSaved = !(self.articlesData.articles[indexPath.row].isSaved ?? false)
+            CoreDataManager.shared.addArticle(article: self.articlesData.articles[indexPath.row])
+        }
         return cell
     }
     
@@ -111,5 +137,12 @@ extension HeadlinesViewController: UISearchBarDelegate{
         searchBar.endEditing(true)
         didSearch = true
         fetchData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            didSearch = false
+            fetchData()
+        }
     }
 }

@@ -54,44 +54,8 @@ class CoreDataManager{
         saveContext()
     }
     
-//    //MARK:- Add Item
-//    func addStory(article: Article){
-//        guard !editStory(story: story) else { return }
-//        let storyCD: StoryCD! = NSEntityDescription.insertNewObject(forEntityName: "StoryCD", into: context) as? StoryCD
-//        storyCD.id = Int16(story.id)
-//        storyCD.isSeen = story.isSeen
-//        saveContext()
-//    }
-    
-//    //MARK:- Get Items
-//    func getStories()->([StoryCD]?){
-//        do{
-//            if let items = try context.fetch(StoryCD.fetchRequest()) as? [StoryCD] , !items.isEmpty{
-//                return (items)
-//            }
-//            return (nil)
-//        }
-//        catch let error{
-//            print("Can't Get items",error)
-//            return (nil)
-//        }
-//    }
-    
-    
-//    //MARK:- Delete Items From CoreData
-//    func removeAllStories(){
-//        do{
-//            let items = try context.fetch(StoryCD.fetchRequest())
-//            delete(items)
-//        }
-//        catch let err {
-//            print("Error on creating/updating order", err)
-//            return
-//        }
-//    }
-    
     //MARK:- Add Item
-    func addAd(article: Article){
+    func addArticle(article: Article){
         let art: FavoriteArticles! = NSEntityDescription.insertNewObject(forEntityName: "FavoriteArticles", into: context) as? FavoriteArticles
         art.source = article.source?.name
         art.author = article.author
@@ -104,11 +68,11 @@ class CoreDataManager{
         art.content = article.content
         
         saveContext()
-        print(getAds() as Any)
+        print(getArticles() as Any)
     }
     
     //MARK:- Get Items
-    func getAds()->([FavoriteArticles]?){
+    func getArticles()->([FavoriteArticles]?){
         do{
             let items = try context.fetch(FavoriteArticles.fetchRequest())
             if !items.isEmpty{
@@ -123,15 +87,15 @@ class CoreDataManager{
     }
     
     
-//    //MARK:- Delete Items From CoreData
-//    func removeAllAds(){
-//        do{
-//            let items = try context.fetch(AdCD.fetchRequest())
-//            delete(items)
-//        }
-//        catch let err {
-//            print("Error on creating/updating order", err)
-//            return
-//        }
-//    }
+    //MARK:- Delete Items From CoreData
+    func removeAllArticles(){
+        do{
+            let items = try context.fetch(FavoriteArticles.fetchRequest())
+            delete(items)
+        }
+        catch let err {
+            print("Error on creating/updating order", err)
+            return
+        }
+    }
 }

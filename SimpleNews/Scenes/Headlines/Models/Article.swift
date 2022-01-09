@@ -19,9 +19,10 @@ struct Article: Codable {
     var publishedAt: String?
     var date: Date?
     var content: String?
+    var isSaved: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case source, author, title, url, urlToImage, publishedAt, content, date
+        case source, author, title, url, urlToImage, publishedAt, content, date, isSaved
         case articleDescription = "description"
     }
 }
